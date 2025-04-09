@@ -1,0 +1,6 @@
+*.DS_Store
+*.vti
+*.pgm
+*.tiff
+__pycache__
+
