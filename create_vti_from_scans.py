@@ -201,7 +201,7 @@ def TIFF2vti(
         print(f'VTI file {output_name+".vti"} already exists')
         return 
 
-    img_files, image_array      = pgm2array(images_base_name, ".tiff")
+    img_files, image_array      = pgm2array(images_base_name, ".tif")
 
     image_shape, flatten_image_array = get_z_metadata_flatten_image(
                                             image_array     = image_array, 
