@@ -229,3 +229,22 @@ def copy_folder(source, destination):
 
     cp_comand = "rsync -azvp  "+source+"/ "+destination
     os.system(cp_comand)
+
+def sequence2vti(
+            output_name         : str   = None,
+            Raw_base_name       : str   = None,
+            Bin_base_name       : str   = None,
+            image_ext                   = ".pgm"                                    ,
+            pixel_size                  = 1, 
+            ):
+
+    match image_ext:
+        case ".pgm":
+            PGM2vti(
+                output_name         = output_name       ,
+                Raw_PGM_base_name   = Raw_base_name     )
+        case ".tif":
+            TIFF2vti(
+                output_name         = output_name       ,
+                images_base_name    = Raw_base_name     ,
+                pixel_size          = pixel_size        )
