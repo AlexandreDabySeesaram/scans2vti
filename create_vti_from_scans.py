@@ -36,7 +36,7 @@ def get_metada_PGM(
     return metadata
 
 
-def pgm2array(
+def sequence2array(
         input_files                                          : str              , 
         file_extension                                       : str      = '.pgm'):
 
@@ -167,10 +167,10 @@ def PGM2vti(
         return 
 
     if Bin_PGM_base_name == None:
-        pgm_files_raw, image_array  = pgm2array(Raw_PGM_base_name)
+        pgm_files_raw, image_array  = sequence2array(Raw_PGM_base_name)
     else:
-        pgm_files, image_array      = pgm2array(Bin_PGM_base_name)
-        pgm_files_raw, _            = pgm2array(Raw_PGM_base_name)
+        pgm_files, image_array      = sequence2array(Bin_PGM_base_name)
+        pgm_files_raw, _            = sequence2array(Raw_PGM_base_name)
     metadata_fields             = ["Slice_Location", "Pixel_Size"]
     metadata                    = get_metada_PGM(
                                     input_file        = pgm_files_raw[0],
@@ -201,7 +201,7 @@ def TIFF2vti(
         print(f'VTI file {output_name+".vti"} already exists')
         return 
 
-    img_files, image_array      = pgm2array(images_base_name, ".tif")
+    img_files, image_array      = sequence2array(images_base_name, ".tif")
 
     image_shape, flatten_image_array = get_z_metadata_flatten_image(
                                             image_array     = image_array, 
