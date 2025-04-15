@@ -40,9 +40,9 @@ def sequence2array(
         input_files                                          : str              , 
         file_extension                                       : str      = '.pgm'):
 
-    pgm_files               = glob.glob(input_files+"*"+file_extension)                                     
-    pgm_files.sort()
-    slices                  = [cv2.imread(file, cv2.IMREAD_GRAYSCALE) for file in pgm_files]
+    img_files               = glob.glob(input_files+"*"+file_extension)                                     
+    img_files.sort()
+    slices                  = [cv2.imread(file, cv2.IMREAD_GRAYSCALE) for file in img_files]
 
     image_array             = np.dstack(slices)
     image_array             = np.rot90(image_array, 1, axes=(1, 0))                                                   # rotation in plane XY for coherence with Collin's code
